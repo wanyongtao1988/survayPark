@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 简单主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 将Action交给spring容器管理 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 模式为开发模式，修改xml配置文件会自动加载，项目交付的时候设置为false,以免影响性能 -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- 字符集编码 -->
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<package name="defaultPackage" namespace="/" extends="struts-default">
+		
+		<action name="regAction_*" class="regAction" method="{1}">
+			<result name="regPage">/reg.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="input">/reg.jsp</result>
+		</action>
+		<action name="logInAction_*" class="logInAction" method="{1}">
+			<result name="logInPage">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+	</package>
+</struts>
